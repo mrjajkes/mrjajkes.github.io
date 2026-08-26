@@ -274,41 +274,17 @@
   transition: transform var(--slow) var(--ease);
 }
 
-.tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid transparent;
-  pointer-events: none;
-  transition: border-color var(--fast) var(--ease);
-}
-
-.tile:hover::after,
-.tile:focus-visible::after {
-  border-color: var(--olive);
-}
-
 .tile:hover img {
   transform: scale(1.015);
 }
 
 .tile-label {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 2.5rem 0.75rem 0.6rem;
-  color: var(--bone);
-  background: linear-gradient(transparent, rgba(10, 11, 9, 0.88));
-  font-family: var(--mono);
-  font-size: var(--step-meta);
-  letter-spacing: 0.06em;
-  text-align: left;
-  opacity: 0;
-  transition: opacity var(--fast) var(--ease);
+  display: none;
 }
 
-.tile:hover .tile-label,
-.tile:focus-visible .tile-label {
-  opacity: 1;
+.tile:focus-visible {
+  outline: 1px solid rgba(225, 229, 211, 0.65);
+  outline-offset: 3px;
 }
 
 
