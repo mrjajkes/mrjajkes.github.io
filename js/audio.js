@@ -12,6 +12,13 @@ const volumeOff = mute?.querySelector('.volume-off');
 const time = document.querySelector('#audio-time');
 const tracks = [...document.querySelectorAll('.track[data-audio]')];
 
+const playIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.25v9.5l7.25-4.75L5 3.25Z" fill="currentColor"/></svg>';
+const pauseIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3.25h3v9.5H4v-9.5Zm5 0h3v9.5H9v-9.5Z" fill="currentColor"/></svg>';
+
+const setPlaybackIcon = (element, playing) => {
+  element.innerHTML = playing ? pauseIcon : playIcon;
+};
+
 if (audio && player && toggle && toggleIcon && title && status && progress && volume &&
     mute && volumeOn && volumeOff && time) {
   let activeTrack = null;
@@ -30,13 +37,13 @@ if (audio && player && toggle && toggleIcon && title && status && progress && vo
 
   const updateState = () => {
     const playing = !audio.paused;
-    toggleIcon.textContent = playing ? '\u275A\u275A' : '\u25B6';
+    setPlaybackIcon(toggleIcon, playing);
     toggle.setAttribute('aria-label', playing ? 'Pause current track' : 'Play current track');
 
     for (const track of tracks) {
       const active = track === activeTrack;
       track.setAttribute('aria-pressed', String(active && playing));
-      track.querySelector('.track-action').textContent = active && playing ? '\u275A\u275A' : '\u25B6';
+      setPlaybackIcon(track.querySelector('.track-action'), active && playing);
     }
   };
 

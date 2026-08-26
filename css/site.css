@@ -594,8 +594,19 @@
 }
 
 .track-action {
+  display: grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
   color: var(--olive);
   text-align: center;
+}
+
+.track-action svg,
+.audio-toggle-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .track-title {
@@ -683,6 +694,12 @@
   color: var(--olive-bright);
   background: var(--surface);
   cursor: pointer;
+}
+
+.audio-toggle-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 
 .audio-current {
