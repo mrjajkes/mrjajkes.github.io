@@ -39,9 +39,6 @@
 
   <div class="shell">
 
-    <!-- ================================================================
-         rail -- sticky identity, nav, socials, decorative line
-         ================================================================ -->
     <header class="rail">
       <a class="wordmark" href="#index">mrjajkes</a>
 
@@ -69,9 +66,6 @@
 
     <main>
 
-      <!-- ==============================================================
-           01 -- index
-           ============================================================== -->
       <section class="section" id="index" aria-labelledby="index-title">
         <div class="hero">
           <div class="reveal">
@@ -86,17 +80,6 @@
         </div>
       </section>
 
-      <!-- ==============================================================
-           02 -- works
-           Every tile states its true --ar from the image's intrinsic size,
-           so nothing is cropped and tall pieces stay tall.
-
-           TODO(titles): these are working titles. Your Bluesky captions name
-           several characters I could not confidently match to a specific file
-           -- Matteo Howerlow, Nill Colemann, Ryland The Architect, Cielvern.
-           The three below marked (bsky) are corrected from captions; the rest
-           are descriptive placeholders. Correct them when you have a minute.
-           ============================================================== -->
       <section class="section" id="works" aria-labelledby="works-title">
         <header class="sec-head">
           <span class="sec-num">02 /</span>
@@ -104,19 +87,16 @@
         </header>
 
         <div class="grid" id="works-grid">
-          <!-- (bsky) "my lawyer character :d" -->
           <button class="tile reveal" type="button" style="--ar:716/1003" data-image="assets/art/1e4db667_original.jpg" data-title="Lawyer">
             <img src="assets/art/1e4db667_original.jpg" alt="Many-eyed arachnid character in a suit and tie" width="716" height="1003" loading="lazy" decoding="async">
             <span class="tile-label">Lawyer</span>
           </button>
 
-          <!-- (bsky) "rejjau sketch ^^" -->
           <button class="tile reveal" type="button" style="--ar:1796/2117" data-image="assets/art/f30b024a_original.jpg" data-title="Rejjau">
             <img src="assets/art/f30b024a_original.jpg" alt="Rejjau, character portrait" width="1796" height="2117" loading="lazy" decoding="async">
             <span class="tile-label">Rejjau</span>
           </button>
 
-          <!-- (bsky) "Kell Ashen - Junior Researcher" -->
           <button class="tile reveal" type="button" style="--ar:852/1106" data-image="assets/art/c483ec0b_original.jpg" data-title="Kell Ashen -- Junior Researcher">
             <img src="assets/art/c483ec0b_original.jpg" alt="Kell Ashen, junior researcher, character portrait" width="852" height="1106" loading="lazy" decoding="async">
             <span class="tile-label">Kell Ashen -- Junior Researcher</span>
@@ -199,13 +179,6 @@
         </div>
       </section>
 
-      <!-- ==============================================================
-           03 -- feed (bluesky)
-           Rendered by js/bluesky.js. Kept deliberately separate from the
-           works grid above: own header, own module, own tile treatment.
-           Moving this <section> and its script to another page is all it
-           would take to split the feed out entirely.
-           ============================================================== -->
       <section class="section" id="feed" aria-labelledby="feed-title">
         <header class="sec-head">
           <span class="sec-num">03 /</span>
@@ -214,13 +187,9 @@
         </header>
 
         <div class="grid" id="feed-grid" aria-busy="true">
-          <!-- skeletons injected by bluesky.js, replaced on load -->
-        </div>
+          </div>
       </section>
 
-      <!-- ==============================================================
-           04 -- contact
-           ============================================================== -->
       <section class="section" id="contact" aria-labelledby="contact-title">
         <header class="sec-head">
           <span class="sec-num">04 /</span>
@@ -326,9 +295,6 @@
         </div>
       </section>
 
-      <!-- ==============================================================
-           05 -- sound
-           ============================================================== -->
       <section class="section" id="sound" aria-labelledby="sound-title">
         <header class="sec-head sound-head">
           <span class="sec-num">05 /</span>
@@ -481,7 +447,6 @@
     </main>
   </div>
 
-  <!-- shared lightbox, used by both the works grid and the feed -->
   <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
     <button class="lightbox-close" type="button" aria-label="Close image">&times;</button>
     <button class="lightbox-nav previous" type="button" aria-label="Previous image">&lsaquo;</button>

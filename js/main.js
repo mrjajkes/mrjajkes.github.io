@@ -1,18 +1,7 @@
-/* ==========================================================================
-   main -- scroll-spy, reveals, works grid, contact clipboard
-   ========================================================================== */
-
 import { register, open } from './lightbox.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-
-/* ==========================================================================
-   works grid → lightbox
-   The tiles are static HTML (crawlable, works without JS); we only read them.
-   Thumb and full are the same local file, so it is already decoded when the
-   morph starts.
-   ========================================================================== */
 
 const tiles = [...document.querySelectorAll('#works-grid .tile')];
 
@@ -31,10 +20,6 @@ tiles.forEach((tile, index) => {
 });
 
 
-/* ==========================================================================
-   reveal on scroll -- one observer for every .reveal on the page
-   ========================================================================== */
-
 const revealed = new WeakSet();
 
 const revealObserver = new IntersectionObserver(
@@ -49,10 +34,6 @@ const revealObserver = new IntersectionObserver(
   { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
 );
 
-/**
- * Stagger is capped at 8 steps so a long grid never accumulates a visible
- * delay. Exported so bluesky.js can enrol its tiles once they exist.
- */
 export function observeReveals(root = document) {
   const targets = [...root.querySelectorAll('.reveal')];
   targets.forEach((el, i) => {
@@ -65,10 +46,6 @@ export function observeReveals(root = document) {
 
 observeReveals();
 
-
-/* ==========================================================================
-   scroll-spy -- mark the active rail nav item
-   ========================================================================== */
 
 const navLinks = [...document.querySelectorAll('#rail-nav a')];
 const sections = navLinks
@@ -128,10 +105,6 @@ new ResizeObserver(queueActiveUpdate).observe(document.body);
 updateActiveSection();
 
 
-/* ==========================================================================
-   easter egg -- the lone star jumps to the sound section
-   ========================================================================== */
-
 document.querySelector('#lone-star')?.addEventListener('click', () => {
   document.querySelector('#sound')?.scrollIntoView({
     behavior: reduceMotion.matches ? 'auto' : 'smooth',
@@ -139,12 +112,6 @@ document.querySelector('#lone-star')?.addEventListener('click', () => {
   });
 });
 
-
-/* ==========================================================================
-   contact -- copy the Discord handle
-   Carried over from the previous build, including the fallback that simply
-   shows the handle when the Clipboard API is unavailable (http, old Safari).
-   ========================================================================== */
 
 document.querySelector('#copy-discord')?.addEventListener('click', async () => {
   const status = document.querySelector('#copy-status');

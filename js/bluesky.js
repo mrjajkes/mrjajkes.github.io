@@ -1,14 +1,3 @@
-/* ==========================================================================
-   bluesky -- the feed section
-   --------------------------------------------------------------------------
-   Deliberately self-contained: this module owns one <section> and touches
-   nothing else. Moving #feed and this script to a separate page is all it
-   would take to split the feed off entirely.
-
-   The public AppView needs no key and sends `access-control-allow-origin: *`,
-   so this is a plain browser fetch -- no proxy, no token, no build step.
-   ========================================================================== */
-
 import { register, open } from './lightbox.js';
 import { observeReveals } from './main.js';
 
@@ -24,22 +13,6 @@ const WANTED = 12;
 const grid = document.querySelector('#feed-grid');
 
 
-/* ==========================================================================
-   text cleanup
-   Raw post text is unusable as a caption: often empty, often nothing but
-   hashtags ("#ss14 #spacestation14 #ss13 #spacestation13"). Image alt text is
-   almost always empty too, so it is only a weak second choice.
-   ========================================================================== */
-
-/**
- * Peel a trailing run of hashtags off the end, one tag at a time.
- *
- * Done iteratively rather than with a single lookahead because punctuation
- * clings to tags in real posts -- "Captain. #Cielvern #Sketch #Anthro
- * #Traditional." ends with a period *after* the last tag, which defeats any
- * pattern anchored straight to $. Each pass strictly shortens the string, so
- * the loop always terminates.
- */
 function stripHashtagTail(input) {
   let out = input;
   for (;;) {
@@ -55,12 +28,9 @@ function replaceEmDashes(input) {
 
 function describe(text, alt) {
   const cleaned = stripHashtagTail(replaceEmDashes(text))
-    // Collapse newlines into a middot so multi-line posts stay on two lines.
     .replace(/\s*\n+\s*/g, ' · ')
     .replace(/\s{2,}/g, ' ')
     .trim()
-    // Stripping a hashtag tail can leave dangling punctuation behind,
-    // e.g. "Nill Colemann, #SpaceStation14" → "Nill Colemann,"
     .replace(/[,;:·\-\s]+$/u, '');
 
   return cleaned || replaceEmDashes(alt).trim();
@@ -87,13 +57,6 @@ function relativeTime(iso) {
 }
 
 
-/* ==========================================================================
-   embed normalisation
-   `filter=posts_with_media` still returns video posts, and quote-posts nest
-   their images one level deeper under `media`. Both are handled rather than
-   silently dropped, which would leave holes in the grid.
-   ========================================================================== */
-
 function readMedia(embed) {
   if (!embed) return null;
 
@@ -119,7 +82,6 @@ function readMedia(embed) {
 }
 
 function toItem(entry) {
-  // Reposts are somebody else's work; skip them.
   if (entry.reason) return null;
 
   const post = entry.post;
@@ -162,17 +124,12 @@ function toItem(entry) {
 }
 
 
-/* ==========================================================================
-   rendering
-   ========================================================================== */
-
 function aspect(ratio) {
   if (ratio?.width && ratio?.height) return `${ratio.width}/${ratio.height}`;
   return '1';
 }
 
 function skeletons() {
-  // Plausible mixed ratios so the grid does not jump when real posts land.
   const shapes = ['3/4', '1', '4/5', '16/9', '3/4', '1'];
   grid.replaceChildren(
     ...shapes.map(ratio => {
@@ -204,7 +161,6 @@ function render(items) {
     cell.className = 'feed-item reveal';
     cell.style.setProperty('--i', String(index % 8));
 
-    /* --- the image tile --- */
     const tile = document.createElement('button');
     tile.type = 'button';
     tile.className = 'tile';
@@ -234,7 +190,6 @@ function render(items) {
     tile.addEventListener('click', () => open('feed', index, tile));
     cell.append(tile);
 
-    /* --- caption --- */
     if (item.text) {
       const text = document.createElement('p');
       text.className = 'feed-text';
@@ -242,7 +197,6 @@ function render(items) {
       cell.append(text);
     }
 
-    /* --- meta line --- */
     const meta = document.createElement('p');
     meta.className = 'feed-meta';
 
@@ -276,10 +230,6 @@ function render(items) {
 }
 
 
-/* ==========================================================================
-   fetch, with a short session cache so in-page navigation does not refetch
-   ========================================================================== */
-
 function readCache() {
   try {
     const raw = sessionStorage.getItem(CACHE_KEY);
@@ -296,8 +246,7 @@ function writeCache(items) {
   try {
     sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), items }));
   } catch {
-    /* private mode or quota -- the feed just refetches next time */
-  }
+    }
 }
 
 async function load() {
@@ -326,7 +275,6 @@ async function load() {
     writeCache(items);
     render(items);
   } catch {
-    // Never show an error or a broken grid -- just the one quiet line.
     fallback();
   }
 }
