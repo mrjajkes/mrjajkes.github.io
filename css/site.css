@@ -267,6 +267,10 @@
   grid-column: span 2;
 }
 
+#works-grid .tile {
+  cursor: pointer;
+}
+
 .tile img {
   width: 100%;
   height: 100%;
