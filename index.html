@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0b09">
+  <meta name="description" content="mrjajkes -- artist, musician, multimedia creator. Character portraits, sketches and sound.">
+  <meta property="og:title" content="mrjajkes">
+  <meta property="og:description" content="i draw music, i compose art.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.jpg">
+  <title>mrjajkes -- artist, musician, multimedia creator</title>
+
+  <link rel="icon" href="assets/profile.jpg" type="image/jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.bsky.app" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="preload" as="image" href="assets/profile.jpg">
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/bluesky.js"></script>
+  <script type="module" src="js/audio.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#works">Skip to work</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="bloom" aria-hidden="true"></div>
+
+  <button class="lone-star" id="lone-star" type="button" aria-label="Jump to the sound section">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c.45 6.66 3.84 10.05 10.5 10.5-6.66.45-10.05 3.84-10.5 10.5C11.55 15.84 8.16 12.45 1.5 12 8.16 11.55 11.55 8.16 12 1.5Z"/></svg>
+  </button>
+
+  <div class="shell">
+
+    <!-- ================================================================
+         rail -- sticky identity, nav, socials, decorative line
+         ================================================================ -->
+    <header class="rail">
+      <a class="wordmark" href="#index">mrjajkes</a>
+
+      <nav class="rail-nav" id="rail-nav" aria-label="Sections">
+        <a href="#index"><i>01</i><span>index</span></a>
+        <a href="#works"><i>02</i><span>works</span></a>
+        <a href="#feed"><i>03</i><span>feed</span></a>
+        <a href="#contact"><i>04</i><span>contact</span></a>
+        <a href="#sound"><i>05</i><span>sound</span></a>
+      </nav>
+
+      <ul class="socials">
+        <li><a href="https://www.youtube.com/@mrjajkes" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></a></li>
+        <li><a href="https://open.spotify.com/artist/1717hW1a0GEEaIT9BI6Toy" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.45-1.15a.75.75 0 1 1-.33-1.46c4.54-1.03 8.43-.58 11.53 1.32.35.22.47.68.25 1.03Zm1.43-3.2a.94.94 0 0 1-1.29.31c-3.2-1.96-8.08-2.53-11.86-1.38a.94.94 0 1 1-.55-1.8c4.33-1.31 9.72-.68 13.38 1.56.44.27.58.85.32 1.3Zm.12-3.34C15.2 8.48 8.87 8.27 5.2 9.39A1.13 1.13 0 0 1 4.54 7.24c4.22-1.28 11.23-1.03 15.66 1.6a1.13 1.13 0 0 1-1.15 1.93Z"/></svg></a></li>
+        <li><a href="https://bsky.app/profile/mrjajkes.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.1-2.14-4.08-6.14-6.85-8.1C2.5.82 1.5 1.15.84 1.45.08 1.8 0 2.96 0 3.64c0 .68.37 5.57.61 6.39.8 2.69 3.63 3.6 6.24 3.3-4.55.67-8.59 2.3-3.29 8.2 5.84 6.05 8-1.3 8.44-3.79.44 2.49 2.24 9.66 8.33 3.8 4.58-4.62 1.26-7.52-3.18-8.21 2.61.3 5.44-.61 6.24-3.3.24-.82.61-5.71.61-6.39 0-.68-.08-1.84-.84-2.19-.66-.3-1.66-.63-4.31 1.25C16.08 4.66 13.1 8.66 12 10.8Z"/></svg></a></li>
+        <li><a href="https://www.twitch.tv/mrjajkes" target="_blank" rel="noopener noreferrer" aria-label="Twitch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.15 0 0 4.3V20h5.4v4l4-4h3.2L24 8.6V0H2.15Zm19.7 7.7-4.55 4.55h-4.55l-4 4v-4H4.2V2.15h17.65V7.7ZM18.9 4.8h-2.15v6.45h2.15V4.8Zm-5.9 0h-2.15v6.45H13V4.8Z"/></svg></a></li>
+      </ul>
+
+      <div class="rail-line" aria-hidden="true"></div>
+    </header>
+
+    <main>
+
+      <!-- ==============================================================
+           01 -- index
+           ============================================================== -->
+      <section class="section" id="index" aria-labelledby="index-title">
+        <div class="hero">
+          <div class="reveal">
+            <h1 id="index-title">hey, i&rsquo;m Andry.</h1>
+            <p>I draw characters, make music, and spend a fair amount of time on
+               Space Station 14. This is a small place for the work I like, recent
+               posts, and a few ways to find me.</p>
+          </div>
+          <figure class="hero-figure reveal" style="--i:1">
+            <img src="assets/profile.jpg" alt="Hand-drawn self-portrait of mrjajkes wearing square glasses and a necktie" width="1500" height="1500" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           02 -- works
+           Every tile states its true --ar from the image's intrinsic size,
+           so nothing is cropped and tall pieces stay tall.
+
+           TODO(titles): these are working titles. Your Bluesky captions name
+           several characters I could not confidently match to a specific file
+           -- Matteo Howerlow, Nill Colemann, Ryland The Architect, Cielvern.
+           The three below marked (bsky) are corrected from captions; the rest
+           are descriptive placeholders. Correct them when you have a minute.
+           ============================================================== -->
+      <section class="section" id="works" aria-labelledby="works-title">
+        <header class="sec-head">
+          <span class="sec-num">02 /</span>
+          <h2 id="works-title">works</h2>
+        </header>
+
+        <div class="grid" id="works-grid">
+          <!-- (bsky) "my lawyer character :d" -->
+          <button class="tile reveal" type="button" style="--ar:716/1003" data-image="assets/art/1e4db667_original.jpg" data-title="Lawyer">
+            <img src="assets/art/1e4db667_original.jpg" alt="Many-eyed arachnid character in a suit and tie" width="716" height="1003" loading="lazy" decoding="async">
+            <span class="tile-label">Lawyer</span>
+          </button>
+
+          <!-- (bsky) "rejjau sketch ^^" -->
+          <button class="tile reveal" type="button" style="--ar:1796/2117" data-image="assets/art/f30b024a_original.jpg" data-title="Rejjau">
+            <img src="assets/art/f30b024a_original.jpg" alt="Rejjau, character portrait" width="1796" height="2117" loading="lazy" decoding="async">
+            <span class="tile-label">Rejjau</span>
+          </button>
+
+          <!-- (bsky) "Kell Ashen - Junior Researcher" -->
+          <button class="tile reveal" type="button" style="--ar:852/1106" data-image="assets/art/c483ec0b_original.jpg" data-title="Kell Ashen -- Junior Researcher">
+            <img src="assets/art/c483ec0b_original.jpg" alt="Kell Ashen, junior researcher, character portrait" width="852" height="1106" loading="lazy" decoding="async">
+            <span class="tile-label">Kell Ashen -- Junior Researcher</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:2155/2976" data-image="assets/art/dfd2314e_original.jpg" data-title="Captain">
+            <img src="assets/art/dfd2314e_original.jpg" alt="White feline captain in a blue and gold dress uniform against a city window" width="2155" height="2976" loading="lazy" decoding="async">
+            <span class="tile-label">Captain</span>
+          </button>
+
+          <button class="tile wide reveal" type="button" style="--ar:1561/858" data-image="assets/art/790ee344_original.jpg" data-title="Mothman">
+            <img src="assets/art/790ee344_original.jpg" alt="Purple moth character beside a pixel-art version of itself" width="1561" height="858" loading="lazy" decoding="async">
+            <span class="tile-label">Mothman</span>
+          </button>
+
+          <button class="tile wide reveal" type="button" style="--ar:1175/874" data-image="assets/art/4a42ffe6_original.jpg" data-title="Detective">
+            <img src="assets/art/4a42ffe6_original.jpg" alt="Detective character study" width="1175" height="874" loading="lazy" decoding="async">
+            <span class="tile-label">Detective</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:1042/1218" data-image="assets/art/5386f222_original.jpg" data-title="Drunk">
+            <img src="assets/art/5386f222_original.jpg" alt="Slouching character portrait" width="1042" height="1218" loading="lazy" decoding="async">
+            <span class="tile-label">Drunk</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:837/1056" data-image="assets/art/911a57db_original.jpg" data-title="Merc">
+            <img src="assets/art/911a57db_original.jpg" alt="Mercenary character portrait" width="837" height="1056" loading="lazy" decoding="async">
+            <span class="tile-label">Merc</span>
+          </button>
+
+          <button class="tile wide reveal" type="button" style="--ar:1822/1076" data-image="assets/art/89c3498d_original.jpg" data-title="Savant">
+            <img src="assets/art/89c3498d_original.jpg" alt="Savant character scene" width="1822" height="1076" loading="lazy" decoding="async">
+            <span class="tile-label">Savant</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:1172/1557" data-image="assets/art/f1128395_original.jpg" data-title="Snake">
+            <img src="assets/art/f1128395_original.jpg" alt="Serpentine character portrait" width="1172" height="1557" loading="lazy" decoding="async">
+            <span class="tile-label">Snake</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:562/680" data-image="assets/art/07ddff20_original.jpg" data-title="Feline">
+            <img src="assets/art/07ddff20_original.jpg" alt="Feline character portrait" width="562" height="680" loading="lazy" decoding="async">
+            <span class="tile-label">Feline</span>
+          </button>
+
+          <button class="tile wide reveal" type="button" style="--ar:2867/1613" data-image="assets/art/7046b9c5_original.jpg" data-title="Technician I">
+            <img src="assets/art/7046b9c5_original.jpg" alt="Three silhouetted figures against a purple industrial skyline" width="2867" height="1613" loading="lazy" decoding="async">
+            <span class="tile-label">Technician I</span>
+          </button>
+
+          <button class="tile wide reveal" type="button" style="--ar:1919/1080" data-image="assets/art/b1aa7b62_original.jpg" data-title="Technician II">
+            <img src="assets/art/b1aa7b62_original.jpg" alt="Technician lit in red" width="1919" height="1080" loading="lazy" decoding="async">
+            <span class="tile-label">Technician II</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:679/680" data-image="assets/art/f71369e3_original.jpg" data-title="Technician III">
+            <img src="assets/art/f71369e3_original.jpg" alt="Technician portrait" width="679" height="680" loading="lazy" decoding="async">
+            <span class="tile-label">Technician III</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:782/783" data-image="assets/art/b9a450e1_original.jpg" data-title="Controlled">
+            <img src="assets/art/b9a450e1_original.jpg" alt="Character study titled Controlled" width="782" height="783" loading="lazy" decoding="async">
+            <span class="tile-label">Controlled</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:718/718" data-image="assets/art/45cfbed5_original.jpg" data-title="Officer">
+            <img src="assets/art/45cfbed5_original.jpg" alt="Security officer character portrait" width="718" height="718" loading="lazy" decoding="async">
+            <span class="tile-label">Officer</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:736/737" data-image="assets/art/cfcbf22b_original.jpg" data-title="Self">
+            <img src="assets/art/cfcbf22b_original.jpg" alt="Minimal olive line-drawing self portrait" width="736" height="737" loading="lazy" decoding="async">
+            <span class="tile-label">Self</span>
+          </button>
+
+          <button class="tile reveal" type="button" style="--ar:490/567" data-image="assets/art/fc02e0aa_original.jpg" data-title="Self II">
+            <img src="assets/art/fc02e0aa_original.jpg" alt="Second self portrait" width="490" height="567" loading="lazy" decoding="async">
+            <span class="tile-label">Self II</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           03 -- feed (bluesky)
+           Rendered by js/bluesky.js. Kept deliberately separate from the
+           works grid above: own header, own module, own tile treatment.
+           Moving this <section> and its script to another page is all it
+           would take to split the feed out entirely.
+           ============================================================== -->
+      <section class="section" id="feed" aria-labelledby="feed-title">
+        <header class="sec-head">
+          <span class="sec-num">03 /</span>
+          <h2 id="feed-title">feed</h2>
+          <span class="sec-meta"><a href="https://bsky.app/profile/mrjajkes.bsky.social" target="_blank" rel="noopener noreferrer">↗ bluesky</a></span>
+        </header>
+
+        <div class="grid" id="feed-grid" aria-busy="true">
+          <!-- skeletons injected by bluesky.js, replaced on load -->
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           04 -- contact
+           ============================================================== -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <header class="sec-head">
+          <span class="sec-num">04 /</span>
+          <h2 id="contact-title">contact</h2>
+        </header>
+
+        <div class="contact reveal">
+          <h3>say hi!</h3>
+
+          <div class="contact-groups">
+            <section class="contact-group" aria-labelledby="contact-direct">
+              <h4 id="contact-direct">direct</h4>
+              <div class="contact-list">
+                <button id="copy-discord" type="button">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+                  <span class="key">discord</span>
+                  <span class="val">mrjajkes</span>
+                  <i class="mark" aria-hidden="true">copy</i>
+                </button>
+                <a href="mailto:mrjajkes@gmail.com">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.9 1.9 0 0 1-2.06 0L2 7"/></svg>
+                  <span class="key">email</span>
+                  <span class="val">mrjajkes@gmail.com</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://discord.gg/rhtsAT27ZF" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span class="key">server</span>
+                  <span class="val">olive zuhhouse</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+              </div>
+            </section>
+
+            <section class="contact-group" aria-labelledby="contact-support">
+              <h4 id="contact-support">support</h4>
+              <div class="contact-list">
+                <a href="https://ko-fi.com/mrjajkes" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+                  <span class="key">ko-fi</span>
+                  <span class="val">support my work</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+              </div>
+            </section>
+
+            <section class="contact-group" aria-labelledby="contact-streams">
+              <h4 id="contact-streams">streams</h4>
+              <div class="contact-list">
+                <a href="https://www.twitch.tv/mrjajkes" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.9 19.1a10 10 0 0 1 0-14.2M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4M19.1 4.9a10 10 0 0 1 0 14.2"/><circle cx="12" cy="12" r="2"/></svg>
+                  <span class="key">twitch</span>
+                  <span class="val">live streams</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://www.youtube.com/@yai-kes" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m10 9 5 3-5 3Z"/></svg>
+                  <span class="key">youtube</span>
+                  <span class="val">live streams + vods</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+              </div>
+            </section>
+
+            <section class="contact-group" aria-labelledby="contact-main">
+              <h4 id="contact-main">main channels</h4>
+              <div class="contact-list">
+                <a href="https://www.youtube.com/@mrjajkes" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 17a24 24 0 0 1 0-10 3 3 0 0 1 2-2c4-.7 11-.7 15 0a3 3 0 0 1 2 2 24 24 0 0 1 0 10 3 3 0 0 1-2 2c-4 .7-11 .7-15 0a3 3 0 0 1-2-2Z"/><path d="m10 9 5 3-5 3Z"/></svg>
+                  <span class="key">youtube</span>
+                  <span class="val">music + main uploads</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://music.youtube.com/@mrjajkes" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m10.5 9 4.5 3-4.5 3Z"/></svg>
+                  <span class="key">yt music</span>
+                  <span class="val">music releases</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://open.spotify.com/artist/1717hW1a0GEEaIT9BI6Toy" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7 9.5c3.6-1 7.4-.7 10.5.9M7.8 12.7c3-.8 6.2-.5 8.9.8M8.7 15.6c2.3-.6 4.8-.4 6.8.6"/></svg>
+                  <span class="key">spotify</span>
+                  <span class="val">artist profile</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://music.apple.com/us/artist/mrjajkes/1783457237" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
+                  <span class="key">apple</span>
+                  <span class="val">artist profile</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+                <a href="https://bsky.app/profile/mrjajkes.bsky.social" target="_blank" rel="noopener noreferrer">
+                  <svg class="row-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>
+                  <span class="key">bluesky</span>
+                  <span class="val">art + updates</span>
+                  <i class="mark" aria-hidden="true">&#8599;</i>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <p class="copy-status" id="copy-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           05 -- sound
+           ============================================================== -->
+      <section class="section" id="sound" aria-labelledby="sound-title">
+        <header class="sec-head sound-head">
+          <span class="sec-num">05 /</span>
+          <h2 id="sound-title">sound</h2>
+          <span class="sec-meta platform-links">
+            <a href="https://www.youtube.com/@mrjajkes" target="_blank" rel="noopener noreferrer">youtube</a>
+            <a href="https://open.spotify.com/artist/1717hW1a0GEEaIT9BI6Toy" target="_blank" rel="noopener noreferrer">spotify</a>
+            <a href="https://music.apple.com/us/artist/mrjajkes/1783457237" target="_blank" rel="noopener noreferrer">apple music</a>
+          </span>
+        </header>
+
+        <div class="music-catalog">
+          <section class="release" aria-labelledby="konn-title">
+            <header class="release-head">
+              <div>
+                <span class="release-kind">creative album</span>
+                <h3 id="konn-title">KONn SEQ</h3>
+              </div>
+              <div class="release-links">
+                <a href="https://open.spotify.com/album/4eDj9UG38qBvW2YjrYLnus?si=WG1oURvqRfqvOR_jZ6JEGw" target="_blank" rel="noopener noreferrer">spotify &#8599;</a>
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_lZo7LtloJgxvixvSx5yTzruvy7jZ7aN0M" target="_blank" rel="noopener noreferrer">yt music &#8599;</a>
+                <a href="https://music.apple.com/us/album/konn-seq-single/1849939657" target="_blank" rel="noopener noreferrer">apple &#8599;</a>
+              </div>
+            </header>
+            <ol class="track-list">
+              <li><button class="track" type="button" data-audio="assets/audio/konn/lysoxygen.mp3" data-title="Lysoxygen"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">01</span><span class="track-title">Lysoxygen</span><time datetime="PT2M10S">2:10</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/konn/metallergic.mp3" data-title="Metallergic"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">02</span><span class="track-title">Metallergic</span><time datetime="PT2M33S">2:33</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/konn/vaporhold.mp3" data-title="Vaporhold"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">03</span><span class="track-title">Vaporhold</span><time datetime="PT2M16S">2:16</time></button></li>
+            </ol>
+          </section>
+
+          <section class="release" aria-labelledby="cielvern-title">
+            <header class="release-head">
+              <div>
+                <span class="release-kind">creative album</span>
+                <h3 id="cielvern-title">Cielvern</h3>
+              </div>
+              <div class="release-links">
+                <a href="https://cielvern.com/" target="_blank" rel="noopener noreferrer">website &#8599;</a>
+                <a href="https://open.spotify.com/album/1qDhdXHk1TAJPi7hNOCFGG" target="_blank" rel="noopener noreferrer">spotify &#8599;</a>
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_nE1_rd7Jxx4VUkUF10bNIla5RFlUfAMcE" target="_blank" rel="noopener noreferrer">yt music &#8599;</a>
+                <a href="https://music.apple.com/us/album/cielvern-past-the-mass-structures-pt-1-ep/1870270354" target="_blank" rel="noopener noreferrer">apple &#8599;</a>
+              </div>
+            </header>
+            <ol class="track-list">
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/01-droplet-residue.mp3" data-title="Droplet Residue"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">01</span><span class="track-title">Droplet Residue</span><time datetime="PT4M14S">4:14</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/02-outskirts.mp3" data-title="Outskirts"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">02</span><span class="track-title">Outskirts</span><time datetime="PT2M14S">2:14</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/03-what-once-was.mp3" data-title="What Once Was"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">03</span><span class="track-title">What Once Was</span><time datetime="PT2M10S">2:10</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/04-armed-with-rebar.mp3" data-title="Armed With Rebar"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">04</span><span class="track-title">Armed With Rebar</span><time datetime="PT2M20S">2:20</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/05-dyspnea.mp3" data-title="Dyspnea"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">05</span><span class="track-title">Dyspnea</span><time datetime="PT3M19S">3:19</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/06-cs-137-blizzard.mp3" data-title="Cs-137 Blizzard"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">06</span><span class="track-title">Cs-137 Blizzard</span><time datetime="PT3M14S">3:14</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/07-maintenance-mans-ghost.mp3" data-title="Maintenance Man's Ghost"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">07</span><span class="track-title">Maintenance Man&rsquo;s Ghost</span><time datetime="PT3M4S">3:04</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/08-under-concrete-slabs.mp3" data-title="Under Concrete Slabs"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">08</span><span class="track-title">Under Concrete Slabs</span><time datetime="PT3M26S">3:26</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/09-scaffolding-forest.mp3" data-title="Scaffolding Forest"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">09</span><span class="track-title">Scaffolding Forest</span><time datetime="PT3M7S">3:07</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/10-towers-untouched.mp3" data-title="Towers Untouched"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">10</span><span class="track-title">Towers Untouched</span><time datetime="PT2M20S">2:20</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/12-funged-up-brutes.mp3" data-title="Funged-Up Brutes"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">12</span><span class="track-title">Funged-Up Brutes</span><time datetime="PT2M57S">2:57</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/13-your-blood-on-their-claws.mp3" data-title="Your Blood On Their Claws"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">13</span><span class="track-title">Your Blood On Their Claws</span><time datetime="PT2M17S">2:17</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/14-corporate-dogs.mp3" data-title="Corporate Dogs"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">14</span><span class="track-title">Corporate Dogs</span><time datetime="PT2M1S">2:01</time></button></li>
+              <li><button class="track" type="button" data-audio="assets/audio/cielvern/16-weve-yet-to-see.mp3" data-title="We've Yet to See"><span class="track-action" aria-hidden="true">&#9654;</span><span class="track-number">16</span><span class="track-title">We&rsquo;ve Yet to See</span><time datetime="PT2M48S">2:48</time></button></li>
+            </ol>
+          </section>
+
+          <section class="release ss14-release" aria-labelledby="ss14-title">
+            <header class="release-head">
+              <div>
+                <span class="release-kind">game music</span>
+                <h3 id="ss14-title">Space Station 14</h3>
+              </div>
+            </header>
+            <ul class="release-list">
+              <li>
+                <div><strong>Space Station 14 Originals</strong><span>2024 / 5 tracks</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/7oYHRUsK8Gm4CXAJM4ltDp?si=7MOAlXVtRMukN1pu-zDmwA" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_lE7SP94IbmbrgffrU6SJRz4TiOJdjYyAA" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/space-station-14-originals-ep/1783457234" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>Space Station 14 Originals PT.2</strong><span>2025 / 3 tracks</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/3b74lGeNfYH2cT3mqu9DIF?si=C3TDOSX5TcW-m4MqhdEbdA" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals PT.2 on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_n1EJgsOSWmpZ1gYd2l2FNd3fss1CzizeU" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals PT.2 on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/space-station-14-originals-pt-2-single/1796013379" target="_blank" rel="noopener noreferrer" aria-label="Space Station 14 Originals PT.2 on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>NUKE-MASS</strong><span>Space Station 14 original</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/6t6jvSFInB29xYNA3LJnuv?si=GS_BLsYiQGC2DQTXowj53w" target="_blank" rel="noopener noreferrer" aria-label="NUKE-MASS on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_lJqtuMXG6JvWXvcXTMRg5YguxbBuhz7pI" target="_blank" rel="noopener noreferrer" aria-label="NUKE-MASS on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/space-station-14-nuke-mass-single/1787853421" target="_blank" rel="noopener noreferrer" aria-label="NUKE-MASS on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>VALIDHUNTING</strong><span>2025 / 2 tracks</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/19ou9L4I90wXSIwCLGf3x2?si=7CUiuyZZRjCJGyEeINQ_dg" target="_blank" rel="noopener noreferrer" aria-label="VALIDHUNTING on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_kUZMRniHGXERdUBypTgGHxUKTuc7C3o8M" target="_blank" rel="noopener noreferrer" aria-label="VALIDHUNTING on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/validhunting-space-station-14-originals-single/1836770173" target="_blank" rel="noopener noreferrer" aria-label="VALIDHUNTING on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>One Against All</strong><span>Space Station 14 original</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/0oIV48Yw8FFHkl75bEGg7D?si=pe8fkSMsTIqv23QDDwBf8A" target="_blank" rel="noopener noreferrer" aria-label="One Against All on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_kewiqtJ61Xa_xYRoW-vYs3jqkx-IY34tU" target="_blank" rel="noopener noreferrer" aria-label="One Against All on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/one-against-all-space-station-14-originals-single/1881174499" target="_blank" rel="noopener noreferrer" aria-label="One Against All on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>Ephedrine Overdose</strong><span>Space Station 14 original</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/4HDMLZ1ZdEf0ReD7u9k4WY?si=qqLsBgmhSY-yd4RvyQdWRQ" target="_blank" rel="noopener noreferrer" aria-label="Ephedrine Overdose on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_nddnw3Mfi75pYB8csDOZABJsYUlHnuJJ8" target="_blank" rel="noopener noreferrer" aria-label="Ephedrine Overdose on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/ephedrine-overdose-space-station-14-originals-single/1879050393" target="_blank" rel="noopener noreferrer" aria-label="Ephedrine Overdose on Apple Music">apple</a>
+                </span>
+              </li>
+              <li>
+                <div><strong>LAW 2, OPEN ARMORY</strong><span>Space Station 14 original</span></div>
+                <span class="release-actions">
+                  <a href="https://open.spotify.com/album/7IOI3PDCRSgp6D4g32Yqww?si=2FPFymSuSzirfizTicWRaA" target="_blank" rel="noopener noreferrer" aria-label="LAW 2, OPEN ARMORY on Spotify">spotify</a>
+                  <a href="https://music.youtube.com/playlist?list=OLAK5uy_nVzw7jwatVyuXsXSu6qchT5ZFHZqIbPi8" target="_blank" rel="noopener noreferrer" aria-label="LAW 2, OPEN ARMORY on YouTube Music">yt music</a>
+                  <a href="https://music.apple.com/us/album/law-2-open-armory-single/1819092637" target="_blank" rel="noopener noreferrer" aria-label="LAW 2, OPEN ARMORY on Apple Music">apple</a>
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <div class="audio-player" id="audio-player" hidden>
+            <button class="audio-toggle" type="button" aria-label="Play current track"><span aria-hidden="true">&#9654;</span></button>
+            <div class="audio-current">
+              <span class="audio-label" id="audio-status">now playing</span>
+              <strong id="audio-title">Nothing yet</strong>
+            </div>
+            <input class="audio-progress" id="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress">
+            <div class="audio-volume">
+              <button class="audio-mute" id="audio-mute" type="button" aria-label="Mute" aria-pressed="false">
+                <svg class="volume-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/></svg>
+                <svg class="volume-off" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m16 10 5 5M21 10l-5 5"/></svg>
+              </button>
+              <input id="audio-volume" type="range" min="0" max="1" value="0.8" step="0.01" aria-label="Volume">
+            </div>
+            <output class="audio-time" id="audio-time">0:00 / 0:00</output>
+            <audio id="catalog-audio" preload="metadata"></audio>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- shared lightbox, used by both the works grid and the feed -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <button class="lightbox-close" type="button" aria-label="Close image">&times;</button>
+    <button class="lightbox-nav previous" type="button" aria-label="Previous image">&lsaquo;</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav next" type="button" aria-label="Next image">&rsaquo;</button>
+  </dialog>
+</body>
+</html>
