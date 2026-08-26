@@ -146,7 +146,7 @@ function fallback() {
   line.className = 'feed-fallback';
   line.innerHTML =
     `<a href="https://bsky.app/profile/${HANDLE}" target="_blank" rel="noopener noreferrer">` +
-    '↗ see the latest on bluesky</a>';
+    'looks like bluesky is down — check it directly ↗</a>';
 
   grid.replaceChildren(line);
   grid.style.display = 'block';
