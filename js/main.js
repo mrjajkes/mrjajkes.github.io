@@ -113,11 +113,22 @@ document.querySelector('#lone-star')?.addEventListener('click', () => {
 });
 
 
-document.querySelector('#copy-discord')?.addEventListener('click', async () => {
+const copyDiscord = document.querySelector('#copy-discord');
+let copyFeedbackTimer;
+
+copyDiscord?.addEventListener('click', async () => {
   const status = document.querySelector('#copy-status');
+  const mark = copyDiscord.querySelector('.mark');
   try {
     await navigator.clipboard.writeText('mrjajkes');
     status.textContent = '> copied to clipboard';
+    copyDiscord.classList.add('is-copied');
+    mark.textContent = 'copied';
+    clearTimeout(copyFeedbackTimer);
+    copyFeedbackTimer = setTimeout(() => {
+      copyDiscord.classList.remove('is-copied');
+      mark.textContent = 'copy';
+    }, 2000);
   } catch {
     status.textContent = '> discord: mrjajkes';
   }

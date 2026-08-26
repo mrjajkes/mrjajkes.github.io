@@ -491,6 +491,11 @@
 .contact-list .mark {
   color: var(--mute);
   font-style: normal;
+  transition: color var(--fast) var(--ease);
+}
+
+.contact-list button.is-copied .mark {
+  color: var(--olive-bright);
 }
 
 .copy-status {
