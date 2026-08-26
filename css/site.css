@@ -592,12 +592,24 @@
 
 .release-list li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
   min-height: 58px;
   padding: 0.55rem 0;
   border-bottom: 1px solid var(--rule);
+}
+
+.release-cover {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  transition: transform var(--fast) var(--ease);
+}
+
+.release-list li:hover .release-cover,
+.release-list li:focus-within .release-cover {
+  transform: scale(1.12);
 }
 
 .release-list div {
@@ -985,10 +997,11 @@
 
   .release-list li {
     align-items: start;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 42px minmax(0, 1fr);
   }
 
   .release-list .release-actions {
+    grid-column: 2;
     justify-content: flex-start;
   }
 
