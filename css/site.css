@@ -95,19 +95,11 @@
 
 .rail-nav a {
   display: grid;
-  grid-template-columns: 2.25rem 1fr;
   align-items: center;
   min-height: 44px;
   color: var(--mute);
   font-family: var(--mono);
   font-size: 0.8125rem;
-  transition: color var(--fast) var(--ease);
-}
-
-.rail-nav a i {
-  color: var(--olive-dim);
-  font-style: normal;
-  font-size: var(--step-meta);
   transition: color var(--fast) var(--ease);
 }
 
@@ -117,10 +109,6 @@
 
 .rail-nav a[aria-current="true"] {
   color: var(--olive-bright);
-}
-
-.rail-nav a[aria-current="true"] i {
-  color: var(--olive);
 }
 
 .socials {
@@ -178,13 +166,6 @@
   border-bottom: 1px solid var(--rule);
 }
 
-.sec-num {
-  color: var(--olive);
-  font-family: var(--mono);
-  font-size: var(--step-meta);
-  letter-spacing: var(--track-wide);
-}
-
 .sec-head h2 {
   flex: 1;
   font-size: var(--step-h2);
@@ -225,7 +206,7 @@
 }
 
 .hero h1 {
-  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-size: clamp(2.1rem, 4.25vw, 3.4rem);
   font-weight: 600;
   letter-spacing: var(--track-tight);
   line-height: 1;
@@ -922,12 +903,7 @@
   }
 
   .rail-nav a {
-    grid-template-columns: auto;
     flex: 0 0 auto;
-  }
-
-  .rail-nav a i {
-    display: none;
   }
 
   .rail-line {

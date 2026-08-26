@@ -23,8 +23,9 @@ if (audio && player && toggle && toggleIcon && title && status && progress && vo
     mute && volumeOn && volumeOff && time) {
   let activeTrack = null;
 
-  const savedVolume = Number(localStorage.getItem('mrjajkes-volume'));
-  audio.volume = Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1
+  const storedVolume = localStorage.getItem('mrjajkes-volume');
+  const savedVolume = Number(storedVolume);
+  audio.volume = storedVolume !== null && Number.isFinite(savedVolume) && savedVolume >= 0 && savedVolume <= 1
     ? savedVolume
     : Number(volume.value);
   volume.value = String(audio.volume);
