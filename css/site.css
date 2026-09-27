@@ -261,8 +261,101 @@
   grid-column: span 2;
 }
 
-#works-grid .tile {
+.works-group {
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+}
+
+.works-group:last-child {
+  margin-bottom: 0;
+}
+
+.works-subhead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+}
+
+.works-subhead::before {
+  content: ">>";
+  color: var(--olive);
+}
+
+.works-subhead::after {
+  content: "";
+  width: clamp(2rem, 5vw, 3.5rem);
+  height: 1px;
+  background: var(--rule);
+}
+
+#works .tile {
   cursor: pointer;
+}
+
+@media (min-width: 901px) {
+  .grid-stagger {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  /* Row 1: Rejjau & Captain (Cols 1-5, 6-10) */
+  .grid-stagger > :nth-child(1) { grid-column: 1 / span 5; }
+  .grid-stagger > :nth-child(2) { grid-column: 6 / span 5; }
+
+  /* Row 2: Kell & Nill shifted gently to the right (Cols 3-7, 8-12) */
+  .grid-stagger > :nth-child(3) { grid-column: 3 / span 5; }
+  .grid-stagger > :nth-child(4) { grid-column: 8 / span 5; }
+
+  /* Row 3: Spiders shifted to the left (Cols 1-5, 6-10) */
+  .grid-stagger > :nth-child(5) { grid-column: 1 / span 5; }
+  .grid-stagger > :nth-child(6) { grid-column: 6 / span 5; }
+
+  /* Row 4: Merc & Ryland with slight center-right offset (Cols 2-6, 7-11) */
+  .grid-stagger > :nth-child(7) { grid-column: 2 / span 5; }
+  .grid-stagger > :nth-child(8) { grid-column: 7 / span 5; }
+
+  /* Row 5: Detective (wide, Cols 1-8) */
+  .grid-stagger > :nth-child(9) { grid-column: 1 / span 8; }
+
+  /* Row 6: Mothman (wide, Cols 3-10) */
+  .grid-stagger > :nth-child(10) { grid-column: 3 / span 8; }
+}
+
+@media (min-width: 700px) {
+  .grid-cielvern {
+    display: grid;
+    grid-template-columns: 1.52fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--tile-gap);
+    align-items: stretch;
+  }
+
+  .grid-cielvern .tile.wide {
+    grid-column: unset;
+  }
+
+  .grid-cielvern > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .grid-cielvern > :nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .grid-cielvern > :nth-child(3) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 100%;
+    aspect-ratio: unset;
+  }
 }
 
 .tile img {

@@ -3,7 +3,7 @@ import { register, open } from './lightbox.js';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 
-const tiles = [...document.querySelectorAll('#works-grid .tile')];
+const tiles = [...document.querySelectorAll('#works .tile')];
 
 register(
   'works',
